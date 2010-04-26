@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 73
+*.pyc
+samwillis.db
+media/journal-images/*
+samwillis/settings_local.py
+*~
+
+END
