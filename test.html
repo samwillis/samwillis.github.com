@@ -265,6 +265,17 @@
 				var email = $(this).html().replace(/ dot /g, '.').replace(/ at /g, '@');
 				$(this).html('<a href="mailto:'+email+'">'+email+'</a>');
 			});
+			$('#work #slides li').fadeOut(0);
+			$('#work #slides li.active').fadeIn(0);
+			$('#work #pips a').click(function(){
+				if (!$(this).hasClass('active')){
+					$('#work #pips a').removeClass('active');
+					$(this).addClass('active');
+					$('#work #slides li.active').fadeOut(1000).removeClass('active');
+					$('#work #slides #'+$(this).attr('href').slice(1)).fadeIn(1000).addClass('active');
+				}
+				return false;
+			});
 		});
 	</script>
 
@@ -302,6 +313,73 @@
 				email me at <span class="email">sam dot willis at gmail dot com</span>, and I am also on 
 				<a href="https://github.com/samwillis">GitHub</a>.
 			</p>
+		</section>
+
+
+		<section class="about">
+
+			<div>
+				<h3>Web design</h3>
+				<p>I have over ten years experiance designing websites and I am well versed in the latest techneques and technologys. My design process starts in a tool like Photoshop where I will investigate diffrent graphical options then quickly moves onto HTML and CSS to develop the design, designing within the confines of the web browser is the best way to ensure that the result not only look great to works briliantly.</p>
+			</div>
+
+			<div>
+				<h3>User inteface design</h3>
+				<p>The design of a user interface is one of the most important tasks when designing a product and can be the key to its success, it is important for the designer to gain an udertanding of what the consumer whants out of the product in order for them to develop the optimal solution. My expriance of UI design reaches from interaction design of embeded consumer products to the development of softwere and web apps.</p>
+			</div>
+
+		</section>
+
+
+		<section class="about">
+
+			<div>
+				<h3>Front-end programming</h3>
+				<p>Increasingly websites and web apps are turning from static pages into more interactive experiances, this is especialy the case with new technilogies like HTML5, WebGL and Web Sockets. I have experiance using these new technologys as well as more established tool to develop interactive user interfaces for both web apps and websites.</p>
+			</div>
+
+			<div>
+				<h3>Back-end development</h3>
+				<p>Most websites are built on a server based platform that alows the pages to be changed dynamicly befor being downloaded by the web browser. I have exparenace with a number of languages a tools including ASP, PHP and my prefired Python using the Django framework to build backend content managment systems and other web apps.</p>
+			</div>
+
+		</section>
+
+
+		<section id="work">
+			<h3>Recent work</h3>
+			<div id="pips">
+				<ul>
+					<li><a href="#slide-1" class="active">1</a></li>
+					<li><a href="#slide-2">2</a></li>
+				</ul>
+			</div>
+			<ul id="slides">
+				<li id="slide-1" class="active">
+					<div id="slidebox" style="background-image: url(slide-louisa.png);"><div></div></div>
+					<p><a href="http://www.louisareid.com">louisareid.com</a> - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare nisl vel  a iaculis libero faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+				</li>
+				<li id="slide-2">
+					<div id="slidebox" style="background-image: url(slide-eg.png);"><div></div></div>
+					<p><a href="http://www.egtechnology.co.uk">egtechnology.co.uk</a> - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras  a iaculis libero faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+				</li>
+			<ul>
+		</section>
+
+
+		<section>
+			<h3>Open source</h3>
+			<p>I occasionally contribute to open source projects and have released a few projects of my own including:</p>
+			<dl>
+				<dt><a href="https://github.com/samwillis/django-gevent">django-gevent</a></dt>
+				<dd>
+					<p>This is a Python libarary that adds gevent support to Django in a simple and easy to use way as well as some usefull Long Polling and Server Sent Events (SSE) tools.</p>
+				</dd>
+				<dt>Type Anotated JSON - For <a href="https://github.com/samwillis/py-tjson">Python</a> and <a href="https://github.com/samwillis/js-tjson">JavaScript</a></dt>
+				<dd>
+					<p>This is a set of libraries that add support an esteded JSON that anotates the types of the serialize objects, this alows you to exchange data without a schema and automaticly convert complex objects to their native type.</p>
+				</dd>
+			</dl>
 		</section>
 
 
