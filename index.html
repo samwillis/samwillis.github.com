@@ -27,21 +27,22 @@
 		body {
 			background: #fff;
 			margin: 0;
-			padding: 60px 0 60px 60px;
+			padding: 45px 0 60px 60px;
 			height: 100%;
 			color: #333;
 			font-family: "aktiv-grotesk-std",sans-serif;
 			font-style: normal;
 			font-weight: 400;
-			font-size: 14px;
 			width: 900px;
 			-webkit-perspective: 500px;
 			perspective: 500px;
 		}
 
 		h1, h2, h3, h4, p {
-			line-height: 0.7em;
-			margin: 0 0 12px 0;
+			margin: 0 0 16px -20px;
+			float: left;
+			clear: both;
+
 		}
 
 		h1, h2, h3, h4 {
@@ -49,42 +50,83 @@
 			font-family: "aktiv-grotesk-std",sans-serif;
 			font-style: normal;
 			font-weight: 700;
+			border-top: 1px solid #f6f6f6;
+			border-bottom: 1px solid #f6f6f6;
+			padding-right: 20px;
+			padding-left: 20px;
 		}
 		h1 {
-			font-size: 100px;
+			font-size: 99px;
+			line-height: 68px;
+			padding-bottom: 5px;
 		}
 		h2 {
 			font-size: 35px;
+			line-height: 26px;
 		}
 		h3 {
 			font-size: 22px;
+			line-height: 16px;
 		}
 		h4 {
-			font-size: 18px;
-			margin-bottom: 18px;
+			font-size: 22px;
+			line-height: 16px;
 		}
 		p {
 			max-width: 560px;
-			margin: 0;
-			line-height: 1.4em;
-			margin-bottom: 14px;
+			margin-bottom: 16px;
+			font-size: 14px;
+			line-height: 16px;
 		}
+		span {
+			border-top: 1px solid #f6f6f6;
+			border-bottom: 1px solid #f6f6f6;
+			font-size: 14px;
+			margin-top: -1px;
+			line-height: 16px;
+			padding-right: 20px;
+			padding-left: 20px;
+			display: block;
+			float: left;
+		}
+
+
 		a {
 			text-decoration: none;
 			color: #8992A9;
 			font-weight: 700;
 		}
 		a:hover {
-			text-decoration: underline;
+			background: #8992A9;
+			color: #fff;
+		}
+
+		.page {
+			padding-top: 16px;
+			border-left: 1px solid #f6f6f6;
+			overflow: visible;
+		}
+
+		.cf:before,
+		.cf:after {
+		    content: " ";
+		    display: table;
+		}
+		.cf:after {
+		    clear: both;
+		}
+		.cf {
+		    *zoom: 1;
 		}
 	</style>
 
 
 	<script>
 		$(function(){
-			$('span.email').each(function(){
+			$('a.email').each(function(){
 				var email = $(this).html().replace(/ dot /g, '.').replace(/ at /g, '@');
-				$(this).html('<a href="mailto:'+email+'">'+email+'</a>');
+				$(this).attr('href', 'mailto:'+email);
+				$(this).html(email);
 			});
 		});
 	</script>
@@ -101,31 +143,39 @@
 	</script>
 </head>
 <body>
-	<h1>Sam</h1>
-	<h1>Willis</h1>
-	<h2>Creating products both online and offline.</h2>
-	<h3>User interface design, front-end programming and back-end development.</h3>
-	<h3>Mechanical design, product development and design for manufacture.</h3>
-	<h4>
-		Co-founder of <a href="http://posterhaste.com">POSTERHASTE</a> and <a href="http://flutterbox.com">Flutterbox</a>.
-	</h4>
-	<p>
-		I am a full stack web designer and developer located in Stamford UK, working with
-		<a href="http://en.wikipedia.org/wiki/HTML5">HTML5</a>,
-		<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>,
-		<a href="http://python.org/">Python</a> and
-		<a href="http://www.djangoproject.com/">Django</a>.
-	</p>
-	<p>
-		I am also a Product Design Engineer with experiance designing consumer products and medical devices, having worked for <a href="http://www.egtechnology.co.uk">EG Technology</a>.
-	</p>
-	<p>
-		I co-founded and run <a href="http://posterhaste.com">Posterhaste</a> and <a href="http://flutterbox.com">Flutterbox</a> with my wife <a href="https://twitter.com/kiwi_abroad">Keira</a>.
-	</p>
-	<p>
-		You can follow me on twitter <a href="https://twitter.com/samwillis">@samwillis</a>, 
-		email me at <span class="email">sam dot willis at gmail dot com</span>, and I am also on 
-		<a href="https://github.com/samwillis">GitHub</a> and <a href="https://www.linkedin.com/in/samwillis">LinkedIn</a>.
-	</p>
+	<div class="page cf">
+		<h1>Sam</h1>
+		<h1>Willis.</h1>
+		<h2>Creating products both online and offline.</h2>
+		<h3>User interface design, front-end programming and back-end development.</h3>
+		<h3>Mechanical design, product development and design for manufacture.</h3>
+		<h4>
+			Co-founder of <a href="http://posterhaste.com">POSTERHASTE</a> and <a href="http://flutterbox.com">Flutterbox</a>.
+		</h4>
+		<p>
+			<span>
+				I am a full stack web designer and developer located in Stamford UK, working with
+			</span>
+			<span>
+				<a href="http://en.wikipedia.org/wiki/HTML5">HTML5</a>,
+				<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>,
+				<a href="http://python.org/">Python</a> and
+				<a href="http://www.djangoproject.com/">Django</a>.
+			</span>
+		</p>
+		<p>
+			<span>I am also a Product Design Engineer with experiance designing consumer </span>
+			<span>products and medical devices, having worked for <a href="http://www.egtechnology.co.uk">EG Technology</a>.</span>
+		</p>
+		<p>
+			<span>I co-founded and run <a href="http://posterhaste.com">Posterhaste</a> and <a href="http://flutterbox.com">Flutterbox</a> with my wife <a href="https://twitter.com/kiwi_abroad">Keira</a>.
+			</span>
+		</p>
+		<p>
+			<span>You can follow me on twitter <a href="https://twitter.com/samwillis">@samwillis</a>, 
+			email me at <a class="email">sam dot willis at gmail dot com</a>, and </span>
+			<span>I am also on <a href="https://github.com/samwillis">GitHub</a> and <a href="https://www.linkedin.com/in/samwillis">LinkedIn</a>.</span>
+		</p>
+	</div>
 </body>
 </html>
