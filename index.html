@@ -94,9 +94,10 @@
 		and&nbsp;<a href="http://flutterbox.com">Flutterbox</a>.
 	</h3>
 	<p>
-		I am a full stack web designer and developer located in Stamford UK, working with
-		<a href="http://en.wikipedia.org/wiki/HTML5">HTML5</a>,
+		I am a full stack developer located in Stamford UK, working with
 		<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>,
+		<a href="https://www.typescriptlang.org">TypeScript</a>,
+		<a href="https://vuejs.org">Vue.js</a>,
 		<a href="http://python.org/">Python</a>
 		and&nbsp;<a href="http://www.djangoproject.com/">Django</a>.
 	</p>
@@ -117,14 +118,11 @@
 		and&nbsp;<a href="https://www.linkedin.com/in/samwillis">LinkedIn</a>.
 		</p>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>
-		$(function(){
-			$('a.email').each(function(){
-				var email = $(this).html().replace(/ dot /g, '.').replace(/ at /g, '@');
-				$(this).attr('href', 'mailto:'+email);
-				$(this).html(email);
-			});
+		document.querySelectorAll('a.email').forEach(function(el){
+			var email = el.innerHTML.replace(/ dot /g, '.').replace(/ at /g, '@');
+			el.setAttribute('href', 'mailto:'+email);
+			el.innerHTML = email;
 		});
 	</script>
 </body>
