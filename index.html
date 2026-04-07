@@ -1,211 +1,760 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-gb">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Sam Willis - Multidisciplinary Developer, Designer, and Engineer</title>
+    <title>
+      Sam Willis - Multidisciplinary Developer, Designer, and Engineer
+    </title>
 
-	<link href="favicon.png" rel="shortcut icon" />
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700,700i" rel="stylesheet">
+    <meta
+      name="description"
+      content="Sam Willis — multidisciplinary developer, designer, and engineer. Co-founder of ElectricSQL, co-creator of TanStack DB, and creator of PGlite."
+    />
 
-	<style>
-		* {
-			box-sizing: border-box;
-		}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samwillis.co.uk/" />
+    <meta
+      property="og:title"
+      content="Sam Willis — Developer, Designer, Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Co-founder of ElectricSQL, co-creator of TanStack DB, and creator of PGlite. I make stuff."
+    />
 
-		body {
-			background: #fafafa;
-			margin: 0;
-			padding: 60px 50px 30px 80px;
-			color: #333;
-			font-family: 'Space Mono', monaco, Consolas, 'Lucida Console', monospace;
-			font-size: 14px;
-			line-height: 22px;
-			--accent: #8992A9;
-		}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@samwillis" />
+    <meta
+      name="twitter:title"
+      content="Sam Willis — Developer, Designer, Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Co-founder of ElectricSQL, co-creator of TanStack DB, and creator of PGlite. I make stuff."
+    />
 
-		h1, h2, h3, h4, p {
-			font-weight: normal;
-			margin: 0 0 22px 0;
-			max-width: 500px;
-		}
+    <link href="favicon.png" rel="shortcut icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-		h1 {
-			font-style: italic;
-			font-weight: bold;
-			font-size: 80px;
-			line-height: 88px;
-		}
-		h2 {
-			font-size: 22px;
-			line-height: 32px;
-		}
-		h3 {
-			font-size: 18px;
-			line-height: 32px;
-			margin-bottom: 0;
-		}
+    <script>
+      (function () {
+        var p = localStorage.getItem("theme") || "auto";
+        var dark =
+          p === "dark" ||
+          (p === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.setAttribute(
+          "data-theme",
+          dark ? "dark" : "light",
+        );
+      })();
+    </script>
 
-		a {
-			text-decoration: none;
-			color: var(--accent);
-			font-weight: bold;
-		}
-		a:hover {
-			background: var(--accent);
-			color: #fff;
-		}
+    <style>
+      :root {
+        --bg: #fafafa;
+        --text: #1a1a1a;
+        --text-muted: #555;
+        --text-faint: #999;
+        --text-faintest: #bbb;
+        --border: #e0e0e0;
+        --border-light: #ddd;
+        --link-line: #ccc;
+        color-scheme: light;
+      }
 
-		@media (max-width: 600px) {
-			body {
-				padding: 30px 30px 30px 50px;
-			}
-		}
+      [data-theme="dark"] {
+        --bg: #111;
+        --text: #d4d4d4;
+        --text-muted: #999;
+        --text-faintest: #555;
+        --border: #2a2a2a;
+        --border-light: #2a2a2a;
+        --link-line: #444;
+        color-scheme: dark;
+      }
 
-		@media (max-width: 430px) {
-			body {
-				padding: 30px 30px 30px 40px;
-				font-size: 12px;
-			}
-			h1 {
-				font-size: 60px;
-				line-height: 66px;
-			}
-			h2 {
-				font-size: 18px;
-				line-height: 32px;
-			}
-			h3 {
-				font-size: 14px;
-				line-height: 22px;
-			}
-		}
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-		.social-icons {
-			display: flex;
-			gap: 18px;
-			align-items: center;
-			margin-bottom: 22px;
-		}
-		.social-icons a {
-			display: block;
-			width: 24px;
-			height: 24px;
-		} 
-		.social-icons a svg {
-			width: 100%;
-			height: 100%;
-			fill: var(--accent);
-		}
-		.social-icons a:hover {
-			border: 5px solid var(--accent);
-			margin: -5px;
-			width: 34px;
-			height: 34px;
-		}
-		.social-icons a:hover svg {
-			fill: #fff;
-		}
-	</style>
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Sometype Mono", monospace;
+        font-size: 14px;
+        line-height: 1.7;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.2s;
+      }
 
-</head>
-<body>
-	<h1>Sam<br> Willis.</h1>
-	<div class="social-icons">
-		<a href="https://bsky.app/profile/samwillis.uk">
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Bluesky</title><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
-		</a>
-		<a href="https://x.com/samwillis">
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-		</a>
-		<a href="https://mastodon.social/@samwillis">
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Mastodon</title><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg>
-		</a>
-		<a href="https://github.com/samwillis">
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-		</a>
-		<a href="https://www.linkedin.com/in/samwillis">
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-		</a>
-	</div>
-	<h2>
-		I make stuff.
-	</h2>
-	<h2>
-		Multidisciplinary Developer, Designer, and Engineer.
-	</h2>
-	<h3>
-		Working on Sync Engines at <a href="http://electric-sql.com">ElectricSQL</a>
-	</h3>
-	<p>
-		a reactive, realtime, multiple player, sync layer for modern apps directly on Postgres.
-	</p>
-	<h3>
-		Started the <a href="http://pglite.dev">PGlite</a> project
-	</h3>
-	<p>
-		an embedded version of Postgres that runs in the browser by compiling it to 
-		<a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a>.
-	</p>
-	<h3>
-		Co-creator of <a href="https://github.com/tanstack/db">TanStack DB</a>
-	</h3>
-	<p>
-		A client-side database with optimistic mutations, sync, and 
-		a reactive incremental query engine built on <a href="https://github.com/electric-sql/d2ts">D2TS</a>, my implementation of 
-		<a href="https://github.com/TimelyDataflow/differential-dataflow/blob/d15bf322b4d1e53343307767406e47d803f53911/differentialdataflow.pdf">Differential Dataflow</a> in TypeScript.
-	</p>
-	<h3>
-		Creator of the <a href="http://www.tetraframework.com">Tetra Framework</a>
-	</h3>
-	<p>
-		a full stack component framework for Django using Alpine.js.
-	</p>
-	<h3>
-		and <a href="http://www.playsudokutoo.com">SudokuToo</a>
-	</h3>
-	<p>
-		a competitive, multiplayer sudoku app. Challenge your friends to complete the grid first!
-	</p>
-	<h3>
-		Co-founder of <a href="http://posterhaste.com" class="ph-logo">Posterhaste</a>
-	</h3>
-	<p>an online store for personalised printed gifts and wall art.
-	</p>
-	<p>
-		I'm a Full Stack Developer and Designer located in Stamford, UK, working with
-		<a href="https://www.typescriptlang.org">TypeScript</a>,
-		<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>,
-		<a href="https://react.dev">React</a>,
-		<a href="https://vuejs.org">Vue.js</a>,
-		<a href="https://webassembly.org">Web Assembly</a>,
-		<a href="http://python.org/">Python</a>,
-		and&nbsp;<a href="http://www.djangoproject.com/">Django</a>.
-	</p>
-	<p>
-		I'm also a Product Design Engineer with experience designing consumer
-		products and medical devices, previously working for
-		<a href="http://www.egtechnology.co.uk">EG&nbsp;Technology</a> in Cambridge UK.
-	</p>
-	<p>
-		For any work enquiries, please contact me directly at <a class="email">samw at hey dot com</a>.
-	</p>
-	<p>
-		You can also follow me on 
-		Blue&nbsp;Sky&nbsp;<a href="https://bsky.app/profile/samwillis.uk">@samwillis.uk</a>,
-		𝕏&nbsp;<a href="https://twitter.com/samwillis">@samwillis</a> or 
-		<a rel="me" href="https://mastodon.social/@samwillis">@samwillis@mastodon.social</a>,
-		and I'm also on <a href="https://github.com/samwillis">GitHub</a>
-		and&nbsp;<a href="https://www.linkedin.com/in/samwillis">LinkedIn</a>.
-	</p>
+      .layout {
+        display: flex;
+        min-height: 100vh;
+        max-width: 1000px;
+      }
 
-	<script>
-		document.querySelectorAll('a.email').forEach(function(el){
-			var email = el.innerHTML.replace(/ dot /g, '.').replace(/ at /g, '@');
-			el.setAttribute('href', 'mailto:'+email);
-			el.innerHTML = email;
-		});
-	</script>
-</body>
+      .main {
+        flex: 1;
+        padding: 60px 60px 40px 80px;
+      }
+
+      .sidebar {
+        width: 320px;
+        padding: 60px 40px 40px 40px;
+        position: relative;
+      }
+      .sidebar::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 60px;
+        bottom: 40px;
+        width: 1px;
+        background: var(--border-light);
+      }
+
+      h1 {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .section-desc {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+        color: var(--text-muted);
+      }
+
+      .bio {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+      }
+
+      .bio p {
+        font-size: 14px;
+        margin-bottom: 14px;
+        max-width: 480px;
+        color: var(--text-muted);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        border-bottom: 1.5px solid var(--link-line);
+        transition: border-color 0.15s;
+      }
+      a:hover {
+        border-color: var(--text);
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .social-icons a {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: none;
+        opacity: 0.4;
+        transition: opacity 0.15s;
+      }
+      .social-icons a:hover {
+        opacity: 1;
+      }
+      .social-icons a svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--text);
+      }
+
+      .sidebar-heading {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-faint);
+        margin-bottom: 20px;
+      }
+
+      .recent-list {
+        list-style: none;
+      }
+
+      .recent-list li {
+        margin-bottom: 18px;
+      }
+
+      .recent-list a {
+        font-size: 13px;
+        font-weight: 500;
+        border-bottom: none;
+        display: block;
+        line-height: 1.5;
+        color: var(--text);
+      }
+      .recent-list a:hover {
+        color: var(--text-muted);
+      }
+
+      .recent-list .meta {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-top: 2px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .recent-list .meta .date {
+        color: var(--text-faintest);
+      }
+      .recent-list .meta .icon {
+        width: 11px;
+        height: 11px;
+        flex-shrink: 0;
+        position: relative;
+        top: -1px;
+      }
+      .recent-list .meta .icon svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--text-faint);
+        display: block;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        opacity: 0.25;
+        transition: opacity 0.15s;
+        z-index: 10;
+      }
+      .theme-toggle:hover {
+        opacity: 0.7;
+      }
+      .theme-toggle svg {
+        width: 14px;
+        height: 14px;
+        fill: var(--text);
+        display: none;
+      }
+      .theme-toggle[data-preference="auto"] .icon-auto,
+      .theme-toggle[data-preference="light"] .icon-light,
+      .theme-toggle[data-preference="dark"] .icon-dark {
+        display: block;
+      }
+
+      @media (max-width: 860px) {
+        .layout {
+          flex-direction: column;
+        }
+        .main {
+          padding: 40px 30px 30px 40px;
+        }
+        .sidebar {
+          width: 100%;
+          border-top: 1px solid var(--border);
+          padding: 30px 30px 30px 40px;
+        }
+        .sidebar::before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .main {
+          padding: 30px 20px 20px 24px;
+        }
+        .sidebar {
+          padding: 24px 20px 24px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol id="icon-bluesky" viewBox="0 0 24 24">
+        <path
+          d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"
+        />
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24">
+        <path
+          d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+        />
+      </symbol>
+      <symbol id="icon-mastodon" viewBox="0 0 24 24">
+        <path
+          d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"
+        />
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path
+          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+        />
+      </symbol>
+      <symbol id="icon-electric" viewBox="0 0 192 192">
+        <path
+          d="M106.992 16.1244C107.711 15.4029 108.683 15 109.692 15H170L84.0082 101.089C83.2888 101.811 82.3171 102.213 81.3081 102.213H21L106.992 16.1244Z"
+        />
+        <path
+          d="M96.4157 104.125C96.4157 103.066 97.2752 102.204 98.331 102.204H170L96.4157 176V104.125Z"
+        />
+      </symbol>
+      <symbol id="icon-tanstack" viewBox="0 0 24 24">
+        <path
+          d="M11.078.042c.316-.042.65-.014.97-.014 1.181 0 2.341.184 3.472.532a12.3 12.3 0 0 1 3.973 2.086 11.9 11.9 0 0 1 3.432 4.33c1.446 3.15 1.436 6.97-.046 10.107-.958 2.029-2.495 3.727-4.356 4.965-1.518 1.01-3.293 1.629-5.1 1.848-2.298.279-4.784-.129-6.85-1.188-3.88-1.99-6.518-5.994-6.57-10.382-.01-.846.003-1.697.17-2.534.273-1.365.748-2.683 1.463-3.88a12 12 0 0 1 2.966-3.36A12.3 12.3 0 0 1 9.357.3a12 12 0 0 1 1.255-.2l.133-.016zM7.064 19.99c-.535.057-1.098.154-1.557.454.103.025.222 0 .33 0 .258 0 .52-.01.778.002.647.028 1.32.131 1.945.303.8.22 1.505.65 2.275.942.813.307 1.622.402 2.484.402.435 0 .866-.001 1.287-.12-.22-.117-.534-.095-.778-.144a11 11 0 0 1-1.556-.416 12 12 0 0 1-1.093-.467l-.23-.108a15 15 0 0 0-1.012-.44c-.905-.343-1.908-.512-2.873-.408m.808-2.274c-1.059 0-2.13.187-3.083.667q-.346.177-.659.41c-.063.046-.175.106-.199.188s.061.151.11.204c.238-.127.464-.261.718-.357 1.64-.624 3.63-.493 5.268.078.817.285 1.569.712 2.365 1.046.89.374 1.798.616 2.753.74 1.127.147 2.412.028 3.442-.48.362-.179.865-.451 1.018-.847-.189.017-.36.098-.539.154a9 9 0 0 1-.868.222c-.994.2-2.052.24-3.053.06-.943-.17-1.82-.513-2.693-.873l-.111-.046-.223-.092-.112-.046a26 26 0 0 0-1.35-.527c-.89-.31-1.842-.5-2.784-.5M9.728 1.452c-1.27.28-2.407.826-3.502 1.514-.637.4-1.245.81-1.796 1.323-.82.765-1.447 1.695-1.993 2.666-.563 1-.924 2.166-1.098 3.297-.172 1.11-.2 2.277-.004 3.388.245 1.388.712 2.691 1.448 3.897.248-.116.424-.38.629-.557.414-.359.85-.691 1.317-.978a3.5 3.5 0 0 1 .539-.264c.07-.029.187-.055.22-.132.053-.124-.045-.34-.062-.468a7 7 0 0 1-.068-1.109 9.7 9.7 0 0 1 .61-3.177c.29-.76.73-1.45 1.254-2.069.177-.21.365-.405.56-.6.115-.114.258-.212.33-.359-.376 0-.751.108-1.108.218-.769.237-1.518.588-2.155 1.084-.291.226-.504.522-.779.76-.084.073-.235.17-.352.116-.176-.083-.149-.43-.169-.59-.078-.612.154-1.387.45-1.918.473-.852 1.348-1.58 2.376-1.555.444.011.833.166 1.257.266-.107-.153-.252-.264-.389-.39a5.4 5.4 0 0 0-1.107-.8c-.163-.085-.338-.136-.509-.2-.086-.03-.195-.074-.227-.17-.06-.177.26-.342.377-.417.453-.289 1.01-.527 1.556-.54.854-.021 1.688.452 2.04 1.258.123.284.16.583.184.885l.004.057.006.085.002.029.005.057.004.056c.268-.218.457-.54.718-.774.612-.547 1.45-.79 2.245-.544a2.97 2.97 0 0 1 1.71 1.378c.097.173.365.595.171.767-.152.134-.344.03-.504-.026a3 3 0 0 0-.372-.094l-.068-.014-.069-.013a3.9 3.9 0 0 0-1.377-.002c-.282.05-.557.15-.838.192v.06c.768.006 1.51.444 1.89 1.109.157.275.235.59.295.9.075.38.022.796-.082 1.168-.035.125-.098.336-.247.365-.106.02-.195-.085-.256-.155a4.6 4.6 0 0 0-.492-.522 20 20 0 0 0-1.467-1.14c-.267-.19-.56-.44-.868-.556.087.208.171.402.2.63.088.667-.192 1.296-.612 1.798a2.6 2.6 0 0 1-.426.427c-.067.05-.151.114-.24.1-.277-.044-.31-.463-.353-.677-.144-.726-.086-1.447.114-2.158-.178.09-.307.287-.418.45a5.3 5.3 0 0 0-.612 1.138c-.61 1.617-.604 3.51.186 5.066.088.174.221.15.395.15h.157a3 3 0 0 1 .472.018c.08.01.193 0 .257.06.077.072.036.194.018.282-.05.246-.066.469-.066.72.328-.051.419-.576.535-.84.131-.298.265-.597.387-.9.06-.148.14-.314.119-.479-.024-.185-.157-.381-.25-.54-.177-.298-.378-.606-.508-.929-.104-.258-.007-.58.286-.672.161-.05.334.049.439.166.22.244.363.609.523.896l1.249 2.248q.159.286.32.57c.043.074.086.188.173.219.077.028.182-.012.26-.027.198-.04.398-.083.598-.12.24-.043.605-.035.778-.222-.253-.08-.545-.075-.808-.057-.158.01-.333.067-.479-.025-.216-.137-.36-.455-.492-.667-.326-.525-.633-1.057-.945-1.59l-.05-.084-.1-.17q-.075-.126-.149-.255c-.037-.066-.092-.153-.039-.227.056-.076.179-.08.29-.081h.021q.066.001.117-.004a10 10 0 0 1 1.347-.107c-.035-.122-.135-.26-.103-.39.071-.292.49-.383.686-.174.131.14.207.334.292.504.113.223.24.44.361.66.211.383.441.757.658 1.138l.055.094.028.047c.093.156.187.314.238.489-.753-.035-1.318-.909-1.646-1.499-.027.095.016.179.05.27q.103.282.262.54c.152.244.326.495.556.673.408.315.945.317 1.436.283.315-.022.708-.165 1.018-.068s.434.438.25.7c-.138.196-.321.27-.55.3.162.346.373.667.527 1.02.064.146.13.37.283.448.102.051.248.003.358 0-.11-.292-.317-.54-.419-.839.31.015.61.176.898.28.567.202 1.128.424 1.687.648l.258.104c.23.092.462.183.689.283.083.037.198.123.29.07.074-.043.123-.146.169-.215a10.3 10.3 0 0 0 1.393-3.208c.75-2.989.106-6.287-1.695-8.783-.692-.96-1.562-1.789-2.522-2.476-2.401-1.718-5.551-2.407-8.44-1.768m4.908 14.904c-.636.166-1.292.317-1.945.401.086.293.296.577.45.84.059.101.122.237.24.281.132.05.292-.03.417-.072-.058-.158-.155-.3-.235-.45-.033-.06-.084-.133-.056-.206.05-.137.263-.13.381-.153.31-.063.617-.142.928-.204.114-.023.274-.085.389-.047.086.03.138.1.187.174l.022.033q.043.07.097.122c.125.113.313.13.472.162-.097-.219-.259-.41-.362-.63-.06-.127-.11-.315-.242-.388-.182-.102-.557.089-.743.137m-4.01-1.457c-.03.38-.147.689-.33 1.019.21.026.423.036.629.087.154.038.296.11.449.153-.082-.224-.233-.423-.35-.63-.12-.208-.226-.462-.398-.63"
+        />
+      </symbol>
+      <symbol id="icon-theme-light" viewBox="0 0 24 24">
+        <path
+          d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.929zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
+        />
+      </symbol>
+      <symbol id="icon-theme-dark" viewBox="0 0 24 24">
+        <path
+          d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+        />
+      </symbol>
+      <symbol id="icon-theme-auto" viewBox="0 0 24 24">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"
+        />
+      </symbol>
+    </svg>
+
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      data-preference="auto"
+      aria-label="Theme: auto (click for light)"
+    >
+      <svg class="icon-auto"><use href="#icon-theme-auto" /></svg>
+      <svg class="icon-light"><use href="#icon-theme-light" /></svg>
+      <svg class="icon-dark"><use href="#icon-theme-dark" /></svg>
+    </button>
+
+    <div class="layout">
+      <div class="main">
+        <h1>Sam Willis</h1>
+        <div class="social-icons">
+          <a href="https://bsky.app/profile/samwillis.uk" aria-label="Bluesky">
+            <svg role="img" aria-hidden="true">
+              <use href="#icon-bluesky" />
+            </svg>
+          </a>
+          <a href="https://x.com/samwillis" aria-label="X">
+            <svg role="img" aria-hidden="true">
+              <use href="#icon-x" />
+            </svg>
+          </a>
+          <a href="https://mastodon.social/@samwillis" aria-label="Mastodon">
+            <svg role="img" aria-hidden="true">
+              <use href="#icon-mastodon" />
+            </svg>
+          </a>
+          <a href="https://github.com/samwillis" aria-label="GitHub">
+            <svg role="img" aria-hidden="true">
+              <use href="#icon-github" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/samwillis" aria-label="LinkedIn">
+            <svg role="img" aria-hidden="true">
+              <use href="#icon-linkedin" />
+            </svg>
+          </a>
+        </div>
+        <h2>
+          I make stuff.<br />
+          Multidisciplinary Developer, Designer, and Engineer.
+        </h2>
+
+        <div class="section">
+          <p class="section-title">
+            Co-founder of <a href="https://electric-sql.com">ElectricSQL</a>
+          </p>
+          <p class="section-desc">
+            The data platform for multi-agent.
+            <a href="https://electric-sql.com/sync">Postgres Sync</a> for
+            real-time data delivery and
+            <a href="https://durablestreams.com">Durable Streams</a> for
+            resilient, collaborative agentic systems.
+          </p>
+        </div>
+
+        <div class="section">
+          <p class="section-title">
+            Co-creator of
+            <a href="https://github.com/tanstack/db">TanStack DB</a>
+          </p>
+          <p class="section-desc">
+            A client-side database with optimistic mutations, sync, and a
+            reactive incremental query engine built on
+            <a href="https://github.com/samwillis/d2ts">D2TS</a>, my
+            implementation of
+            <a
+              href="https://github.com/TimelyDataflow/differential-dataflow/blob/d15bf322b4d1e53343307767406e47d803f53911/differentialdataflow.pdf"
+              >Differential Dataflow</a
+            >
+            in TypeScript.
+          </p>
+        </div>
+
+        <div class="section">
+          <p class="section-title">
+            Started the <a href="https://pglite.dev">PGlite</a> project
+          </p>
+          <p class="section-desc">
+            An embedded version of Postgres compiled to
+            <a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a>,
+            running in the browser or server-side in Node and Bun.
+          </p>
+        </div>
+
+        <div class="section">
+          <p class="section-title">
+            Creator of the
+            <a href="https://www.tetraframework.com">Tetra Framework</a>
+          </p>
+          <p class="section-desc">
+            A full stack component framework for Django using Alpine.js.
+          </p>
+        </div>
+
+        <div class="section">
+          <p class="section-title">
+            Built <a href="https://www.playsudokutoo.com">SudokuToo</a>
+          </p>
+          <p class="section-desc">
+            A competitive, multiplayer sudoku app. Challenge your friends to
+            complete the grid first.
+          </p>
+        </div>
+
+        <div class="section">
+          <p class="section-title">
+            Co-founder of <a href="https://posterhaste.com">Posterhaste</a>
+          </p>
+          <p class="section-desc">
+            An online store for personalised printed gifts and wall art.
+          </p>
+        </div>
+
+        <div class="bio">
+          <p>
+            Based in London, UK. I've been writing code since I was a kid, but
+            started my career as a product design engineer, designing medical
+            devices and consumer products at
+            <a href="https://www.egtechnology.co.uk">EG Technology</a> in
+            Cambridge. That background in physical engineering still shapes how
+            I think about software: systems-level reasoning, attention to how
+            things feel in use, and a bias toward building the real thing.
+          </p>
+          <p>
+            I like to build things that help others be creative. I approach
+            problems from a UX and DX perspective, but go deep into the
+            underlying tech to solve genuinely hard problems. Most of my time
+            now goes into ElectricSQL and the tools around it.
+          </p>
+          <p>Drop me a note: <a class="email">samw at hey dot com</a></p>
+          <p>
+            <a href="https://bsky.app/profile/samwillis.uk">Bluesky</a> /
+            <a href="https://x.com/samwillis">X</a> /
+            <a rel="me" href="https://mastodon.social/@samwillis">Mastodon</a> /
+            <a href="https://github.com/samwillis">GitHub</a> /
+            <a href="https://www.linkedin.com/in/samwillis">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <p class="sidebar-heading">Recent Stuff</p>
+        <ul class="recent-list">
+          <li>
+            <a href="https://github.com/samwillis/premirror"
+              >Premirror: Word-class page-layout editors on the web</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Mar 2026</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2026/03/25/tanstack-db-0.6-app-ready-with-persistence-and-includes"
+              >TanStack DB 0.6: persistence and includes</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Mar 2026</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://tanstack.com/blog/tanstack-db-0.6-app-ready-with-persistence-and-includes"
+              >TanStack DB 0.6: persistence, offline support, and hierarchical
+              data</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-tanstack" /></svg
+              ></span>
+              <span class="date">Mar 2026</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2026/01/20/from-science-fiction-to-reality-you-can-build-difficult-things-now"
+              >From fiction to reality, you can now build difficult things</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Jan 2026</span>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/durable-streams/durable-streams"
+              >Durable Streams: the data primitive for the agent loop</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Dec 2025</span>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/samwillis/solidtype"
+              >SolidType: a parametric CAD app on Electric and Durable
+              Streams</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Nov 2025</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://tanstack.com/blog/tanstack-db-0.5-query-driven-sync"
+              >TanStack DB 0.5: query-driven sync</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-tanstack" /></svg
+              ></span>
+              <span class="date">Nov 2025</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://tanstack.com/blog/tanstack-db-0.1-the-embedded-client-database-for-tanstack-query"
+              >Stop re-rendering: TanStack DB, the embedded client database</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-tanstack" /></svg
+              ></span>
+              <span class="date">Jul 2025</span>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/tanstack/db"
+              >TanStack DB: the reactive client store for your API</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Jul 2025</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2025/04/09/building-ai-apps-on-sync"
+              >Building AI apps? You need sync</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Apr 2025</span>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/samwillis/d2ts"
+              >D2TS: Differential Dataflow in TypeScript</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Nov 2024</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2024/05/14/electricsql-postgres-client-support"
+              >Electric v0.11: Postgres in the client</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">May 2024</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2024/02/05/local-first-ai-with-tauri-postgres-pgvector-llama"
+              >Local AI with Postgres, pgvector and llama2 in a Tauri app</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Feb 2024</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2023/11/02/using-electricsql-with-the-ionic-framework-and-capacitor"
+              >ElectricSQL with the Ionic Framework and Capacitor</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Nov 2023</span>
+            </div>
+          </li>
+          <li>
+            <a
+              href="https://electric-sql.com/blog/2023/10/12/linerlite-local-first-with-react"
+              >Linearlite: a Linear clone built with ElectricSQL and React</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-electric" /></svg
+              ></span>
+              <span class="date">Oct 2023</span>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/samwillis/x-style"
+              >x-style: a tiny inline nested CSS library</a
+            >
+            <div class="meta">
+              <span class="icon"
+                ><svg><use href="#icon-github" /></svg
+              ></span>
+              <span class="date">Apr 2023</span>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <script>
+      document.querySelectorAll("a.email").forEach(function (el) {
+        var email = el.innerHTML.replace(/ dot /g, ".").replace(/ at /g, "@");
+        el.setAttribute("href", "mailto:" + email);
+        el.innerHTML = email;
+      });
+
+      (function () {
+        var prefs = ["auto", "light", "dark"];
+        var btn = document.getElementById("theme-toggle");
+        var stored = localStorage.getItem("theme") || "auto";
+
+        var labels = { auto: "auto", light: "light", dark: "dark" };
+
+        function apply(pref) {
+          var dark =
+            pref === "dark" ||
+            (pref === "auto" &&
+              matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.setAttribute(
+            "data-theme",
+            dark ? "dark" : "light",
+          );
+          btn.setAttribute("data-preference", pref);
+          var next = prefs[(prefs.indexOf(pref) + 1) % 3];
+          btn.setAttribute(
+            "aria-label",
+            "Theme: " + labels[pref] + " (click for " + labels[next] + ")",
+          );
+          localStorage.setItem("theme", pref);
+        }
+
+        btn.addEventListener("click", function () {
+          var current = btn.getAttribute("data-preference");
+          var next = prefs[(prefs.indexOf(current) + 1) % 3];
+          apply(next);
+        });
+
+        apply(stored);
+
+        matchMedia("(prefers-color-scheme: dark)").addEventListener(
+          "change",
+          function () {
+            if ((localStorage.getItem("theme") || "auto") === "auto")
+              apply("auto");
+          },
+        );
+      })();
+    </script>
+  </body>
 </html>
